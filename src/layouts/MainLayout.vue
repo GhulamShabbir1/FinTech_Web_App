@@ -4,36 +4,39 @@
 
     <!-- Header -->
     <q-header elevated class="text-white header-gradient">
-      <q-toolbar>
+      <q-toolbar class="q-py-sm">
         <q-btn
           flat
           round
           dense
           icon="menu"
           @click="drawerOpen = !drawerOpen"
-          class="q-mr-sm"
+          class="q-mr-sm lt-md"
         />
         <q-toolbar-title class="row items-center no-wrap">
           <q-icon name="payments" class="q-mr-sm" />
           <span class="text-weight-medium">Fintech System</span>
         </q-toolbar-title>
-        <q-input
-          dense
-          standout="bg-white text-dark"
-          v-model="q"
-          placeholder="Search..."
-          class="q-mr-md"
-          rounded
-        >
-          <template #prepend>
-            <q-icon name="search" />
-          </template>
-        </q-input>
-        <q-btn flat round dense icon="notifications" class="q-mr-xs" />
-        <q-avatar size="32px">
-          <img src="https://i.pravatar.cc/64?img=5" alt="user" />
-        </q-avatar>
+        <div class="gt-sm">
+          <q-btn flat label="Home" to="/" class="q-mx-xs" />
+          <q-btn flat label="Benefits" to="/" @click.prevent="scrollTo('benefits')" class="q-mx-xs" />
+          <q-btn flat label="Services" to="/" @click.prevent="scrollTo('services')" class="q-mx-xs" />
+          <q-btn flat label="Partners" to="/" @click.prevent="scrollTo('partners')" class="q-mx-xs" />
+          <q-btn flat label="Insights" to="/stats" class="q-mx-xs" />
+          <q-btn flat label="Transactions" to="/transactions" class="q-mx-xs" />
+        </div>
+        <q-space />
+        <q-btn dense flat icon="search" @click="searchOpen = !searchOpen" class="q-mr-sm" />
+        <q-btn flat rounded class="btn-gradient" to="/register" label="Get Started" />
+        <q-btn flat class="q-ml-sm btn-outline-light" to="/login" label="Access Account" />
       </q-toolbar>
+      <q-slide-transition>
+        <div v-show="searchOpen" class="q-pa-sm bg-white text-dark">
+          <q-input dense outlined v-model="q" placeholder="Search...">
+            <template #prepend><q-icon name="search" /></template>
+          </q-input>
+        </div>
+      </q-slide-transition>
     </q-header>
 
     <!-- Drawer -->
@@ -49,11 +52,6 @@
           <q-item-section>Home</q-item-section>
         </q-item>
 
-        <q-item clickable v-ripple to="/dashboard" class="nav-item">
-          <q-item-section avatar><q-icon name="dashboard" /></q-item-section>
-          <q-item-section>Dashboard</q-item-section>
-        </q-item>
-
         <q-item clickable v-ripple to="/transactions" class="nav-item">
           <q-item-section avatar><q-icon name="receipt_long" /></q-item-section>
           <q-item-section>Transactions</q-item-section>
@@ -64,12 +62,12 @@
           <q-item-section>Analytics</q-item-section>
         </q-item>
 
-        <q-separator spaced />
-
         <q-item clickable v-ripple to="/checkout/merchant-123" class="nav-item">
           <q-item-section avatar><q-icon name="shopping_cart" /></q-item-section>
           <q-item-section>Checkout</q-item-section>
         </q-item>
+
+        <q-separator spaced />
 
         <q-item clickable v-ripple to="/login" class="nav-item">
           <q-item-section avatar><q-icon name="login" /></q-item-section>
@@ -94,8 +92,38 @@
 
     <!-- Footer -->
     <q-footer class="bg-grey-1 text-grey-8">
-      <div class="q-pa-sm text-center">
-        © {{ new Date().getFullYear() }} Fintech System
+      <div class="q-pa-lg q-px-xl">
+        <div class="row items-start q-col-gutter-xl">
+          <div class="col-12 col-md-4 q-mb-md">
+            <div class="text-subtitle1 text-dark">Fintech System</div>
+            <div class="text-caption">Modern payment infrastructure for merchants.</div>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="text-caption text-weight-medium q-mb-sm">Company</div>
+            <q-list dense>
+              <q-item clickable v-ripple to="/" class="q-pa-xs"><q-item-section>Home</q-item-section></q-item>
+              <q-item clickable v-ripple to="/stats" class="q-pa-xs"><q-item-section>Insights</q-item-section></q-item>
+              <q-item clickable v-ripple to="/transactions" class="q-pa-xs"><q-item-section>Transactions</q-item-section></q-item>
+            </q-list>
+          </div>
+          <div class="col-6 col-md-2">
+            <div class="text-caption text-weight-medium q-mb-sm">Legal</div>
+            <q-list dense>
+              <q-item clickable class="q-pa-xs"><q-item-section>Privacy</q-item-section></q-item>
+              <q-item clickable class="q-pa-xs"><q-item-section>Terms</q-item-section></q-item>
+              <q-item clickable class="q-pa-xs"><q-item-section>Policy</q-item-section></q-item>
+            </q-list>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="text-caption text-weight-medium q-mb-sm">Follow us</div>
+            <div class="row q-gutter-sm">
+              <q-btn round flat icon="public" href="#" />
+              <q-btn round flat icon="business" href="#" />
+              <q-btn round flat icon="code" href="#" />
+            </div>
+          </div>
+        </div>
+        <div class="text-center q-mt-lg text-caption">© {{ new Date().getFullYear() }} Fintech System</div>
       </div>
     </q-footer>
   </q-layout>
@@ -107,6 +135,14 @@ import AnimateBackground from "../components/common/AnimateBackground.vue"
 
 const drawerOpen = ref(true)
 const q = ref("")
+const searchOpen = ref(false)
+
+const scrollTo = (id) => {
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
 </script>
 
 <style scoped>
