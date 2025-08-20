@@ -8,9 +8,18 @@ const api = axios.create({
 })
 
 api.interceptors.request.use((config) => {
-  const auth = useAuthStore()
-  if (auth.token) {
-    config.headers.Authorization = `Bearer ${auth.token}`
+  try {
+    const auth = useAuthStore()
+    if (auth && auth.token) {
+      config.headers.Authorization = `Bearer ${auth.token}`
+      return config
+    }
+  } catch {
+    /* no-op */
+  }
+  const token = localStorage.getItem('auth_token') || ''
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
   }
   return config
 })
@@ -21,8 +30,12 @@ api.interceptors.response.use(
     const status = error?.response?.status
     const message = error?.response?.data?.message || error.message || 'Request failed'
     if (status === 401) {
-      const auth = useAuthStore()
-      auth.logout()
+      try {
+        const auth = useAuthStore()
+        if (auth) auth.logout()
+      } catch {
+        localStorage.removeItem('auth_token')
+      }
     }
     Notify.create({ type: 'negative', message })
     return Promise.reject(error)
