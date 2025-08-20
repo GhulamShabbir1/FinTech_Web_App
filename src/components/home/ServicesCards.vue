@@ -1,10 +1,10 @@
 <template>
   <div class="row q-col-gutter-md">
     <div class="col-12 col-sm-6 col-md-3" v-for="s in services" :key="s.title">
-      <q-card class="q-pa-md">
+      <q-card class="q-pa-md service-card">
         <div class="row items-center">
-          <q-icon :name="s.icon" size="md" class="q-mr-sm" />
-          <div class="text-subtitle2">{{ s.title }}</div>
+          <q-icon :name="s.icon" size="md" class="q-mr-sm text-lime" />
+          <div class="text-subtitle2 text-darkest">{{ s.title }}</div>
         </div>
         <div class="text-caption text-grey-7 q-mt-xs">{{ s.desc }}</div>
       </q-card>

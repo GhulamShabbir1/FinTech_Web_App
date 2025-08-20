@@ -2,7 +2,7 @@
   <q-layout view="hHh LpR fFf">
 
     <!-- Header -->
-    <q-header elevated class="text-white header-gradient">
+    <q-header elevated class="text-white header-gradient" reveal>
       <q-toolbar class="q-py-sm">
         <q-btn
           v-if="isAuthed"
@@ -92,7 +92,7 @@
     </q-page-container>
 
     <!-- Footer -->
-    <q-footer class="bg-grey-1 text-grey-8">
+    <q-footer class="footer-dark">
       <div class="q-pa-lg q-px-xl">
         <div class="row items-start q-col-gutter-xl">
           <div class="col-12 col-md-4 q-mb-md">

@@ -80,23 +80,22 @@ button:focus-visible {
 
 /* ---- Fintech theme utilities ---- */
 :root {
-  /* Closer to the referenced Dribbble palette: deep navy, electric blue, cyan accents */
-  --brand-primary: #2563eb; /* electric blue */
-  --brand-secondary: #06b6d4; /* cyan */
-  --brand-accent: #f59e0b; /* amber for highlights */
-  --brand-bg: #0b1220; /* deep navy */
+  /* Project palette (requested): lime + deep darks + white */
+  --brand-primary: #bdf000; /* lime */
+  --brand-secondary: #171719; /* charcoal */
+  --brand-accent: #ffffff; /* white */
+  --brand-bg: #09050d; /* near-black */
 }
 
 .header-gradient {
-  background: linear-gradient(90deg, #0b1220 0%, #0f1c36 55%, #162e5c 100%);
+  background: linear-gradient(90deg, #09050d 0%, #121018 60%, #171719 100%);
 }
 
 .glass-card {
-  background: rgba(7, 16, 35, 0.6);
-  border: 1px solid rgba(80, 140, 255, 0.15);
-  backdrop-filter: blur(14px);
+  background: #ffffff;
+  border: 1px solid rgba(189, 240, 0, 0.3);
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .elevated-hover:hover {
@@ -120,21 +119,21 @@ button:focus-visible {
 
 /* Gradient button styles */
 .btn-gradient {
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)) !important;
-  color: #fff !important;
-  border: none !important;
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+  background: linear-gradient(135deg, var(--brand-primary), #ffffff) !important;
+  color: #09050d !important;
+  border: 1px solid rgba(189, 240, 0, 0.5) !important;
+  box-shadow: 0 8px 24px rgba(189, 240, 0, 0.25);
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .btn-gradient:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 12px 28px rgba(189, 240, 0, 0.35);
 }
 
 .btn-outline-light {
   background: transparent !important;
-  color: #fff !important;
-  border: 1px solid rgba(255,255,255,0.4) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255,255,255,0.6) !important;
 }
 .btn-outline-light:hover {
   background: rgba(255,255,255,0.06) !important;
@@ -147,4 +146,28 @@ button:focus-visible {
 .fade-slide-enter-from, .fade-slide-leave-to {
   opacity: 0;
   transform: translateY(6px);
+}
+
+/* Typography: prefer Gilroy if available */
+body, button, input, textarea, .q-btn__content, .q-toolbar, .q-item__label {
+  font-family: 'Gilroy', 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Utilities */
+.text-lime { color: var(--brand-primary) !important; }
+.bg-deep { background: var(--brand-bg) !important; }
+.text-darkest { color: var(--brand-bg) !important; }
+
+/* Service cards */
+.service-card {
+  background: #ffffff;
+  border: 1px solid rgba(189, 240, 0, 0.3);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* Footer styling */
+.footer-dark {
+  background: #171719 !important;
+  color: #ffffff !important;
+  border-top: 1px solid rgba(189,240,0,0.15);
 }

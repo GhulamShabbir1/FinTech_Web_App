@@ -3,32 +3,32 @@
     <div class="q-mx-auto" style="max-width: 1200px;">
       <!-- Hero -->
       <div class="column items-center text-center q-my-xl animate__animated animate__fadeIn">
-        <div class="text-h3 text-white">Fintech System</div>
-        <div class="text-subtitle1 text-grey-4 q-mt-sm" style="max-width: 760px;">
+        <div class="text-h2 text-lime" style="font-weight:800; letter-spacing:.2px;">Fintech System</div>
+        <div class="text-subtitle1 text-grey-4 q-mt-sm" style="max-width: 760px; font-size:18px;">
           Build, scale and manage payments with ease: merchant onboarding, secure checkout, transactions and analytics.
         </div>
         <div class="q-mt-lg row q-gutter-sm">
-          <q-btn label="Get Started" @click="goToRegister" class="btn-gradient" />
-          <q-btn outline label="Access Account" @click="goToLogin" class="btn-outline-light" />
+          <q-btn label="Get Started" @click="goToRegister" class="btn-gradient" size="lg" />
+          <q-btn outline label="Access Account" @click="goToLogin" class="btn-outline-light" size="lg" />
         </div>
       </div>
 
       <!-- Feature Cards -->
       <div class="row q-col-gutter-md q-mb-xl">
         <div class="col-12 col-sm-6 col-md-3" v-for="card in cards" :key="card.title">
-          <q-card class="q-pa-md glass-card elevated-hover animate__animated animate__zoomIn">
+          <q-card class="q-pa-md service-card elevated-hover animate__animated animate__zoomIn">
             <div class="row items-center">
-              <q-icon :name="card.icon" size="md" class="q-mr-sm" />
-              <div class="text-subtitle1 text-weight-medium">{{ card.title }}</div>
+              <q-icon :name="card.icon" size="lg" class="q-mr-sm text-lime" />
+              <div class="text-subtitle1 text-weight-medium text-darkest">{{ card.title }}</div>
             </div>
-            <div class="q-mt-sm text-grey-6">{{ card.desc }}</div>
+            <div class="q-mt-sm text-grey-7">{{ card.desc }}</div>
           </q-card>
         </div>
       </div>
 
       <!-- Benefits -->
       <div id="benefits" class="q-mt-xl">
-        <div class="text-h5 text-white q-mb-md text-center">Benefits & Advantages</div>
+        <div class="text-h4 text-lime q-mb-md text-center" style="font-weight:700;">Benefits & Advantages</div>
         <div class="row q-col-gutter-md">
           <div class="col-12 col-sm-6 col-md-3" v-for="b in benefits" :key="b.title">
             <q-card class="q-pa-md hover-raise animate__animated animate__fadeInUp">
@@ -42,13 +42,13 @@
 
       <!-- Services -->
       <div id="services" class="q-mt-xl">
-        <div class="text-h5 text-white q-mb-md text-center">Our Services</div>
+        <div class="text-h4 text-lime q-mb-md text-center" style="font-weight:700;">Our Services</div>
         <ServicesCards />
       </div>
 
       <!-- Partners -->
       <div id="partners" class="q-mt-xl">
-        <div class="text-h6 text-grey-5 q-mb-md text-center">Official Partners</div>
+        <div class="text-h5 text-lime q-mb-md text-center" style="font-weight:700;">Official Partners</div>
         <div class="row items-center justify-around q-gutter-md">
           <q-img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Binance_Logo.png" style="height:28px; width: auto; filter: grayscale(100%); opacity: .9;"/>
           <q-img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" style="height:28px; width: auto; filter: grayscale(100%); opacity: .9;"/>
