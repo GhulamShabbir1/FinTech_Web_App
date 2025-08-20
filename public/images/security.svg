@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#09050d"/>
+      <stop offset="100%" stop-color="#171719"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#g)"/>
+  <g>
+    <path d="M600 150 L850 240 V420 C850 530 760 640 600 680 C440 640 350 530 350 420 V240 Z"
+          fill="#000" stroke="#bdf000" stroke-opacity="0.6" stroke-width="3"/>
+    <circle cx="600" cy="380" r="120" fill="#0e0e13" stroke="#bdf000" stroke-opacity="0.4" stroke-width="2"/>
+    <rect x="560" y="340" width="80" height="80" rx="12" fill="#bdf000"/>
+  </g>
+  <text x="90" y="100" fill="#bdf000" font-family="Gilroy, Inter, Arial" font-size="40" font-weight="800">Bank‑Grade Security</text>
+</svg>
