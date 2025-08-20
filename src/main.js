@@ -27,7 +27,7 @@ app.use(Quasar, {
 
 // Bootstrap auth token on app start
 import { useAuthStore } from './store/auth'
-const auth = useAuthStore()
+const auth = useAuthStore(pinia)
 auth.loadToken()
 
 // Set brand colors (align with fintech theme)
