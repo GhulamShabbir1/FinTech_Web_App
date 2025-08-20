@@ -131,11 +131,11 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue"
-import { useAuthStore } from "../store/auth"
+import { ref, onMounted, watch } from "vue"
+import { useRoute } from 'vue-router'
 
-const auth = useAuthStore()
-const isAuthed = computed(() => !!auth.token)
+const route = useRoute()
+const isAuthed = ref(false)
 
 const drawerOpen = ref(false)
 const q = ref("")
@@ -147,6 +147,18 @@ const scrollTo = (id) => {
     el.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 }
+
+const refreshAuth = () => {
+  isAuthed.value = !!localStorage.getItem('auth_token')
+}
+
+onMounted(() => {
+  refreshAuth()
+})
+
+watch(() => route.fullPath, () => {
+  refreshAuth()
+})
 </script>
 
 <style scoped>
