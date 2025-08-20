@@ -31,9 +31,9 @@ const auth = useAuthStore()
 auth.loadToken()
 
 // Set brand colors (align with fintech theme)
-setCssVar('primary', '#3b82f6')
-setCssVar('secondary', '#10b981')
+setCssVar('primary', '#2563eb')
+setCssVar('secondary', '#06b6d4')
 setCssVar('accent', '#f59e0b')
-setCssVar('dark', '#0b1020')
+setCssVar('dark', '#0b1220')
 
 app.mount('#app')

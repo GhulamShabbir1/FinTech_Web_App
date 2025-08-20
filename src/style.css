@@ -80,21 +80,23 @@ button:focus-visible {
 
 /* ---- Fintech theme utilities ---- */
 :root {
-  --brand-primary: #3b82f6;
-  --brand-secondary: #10b981;
-  --brand-accent: #f59e0b;
-  --brand-bg: #0b1020;
+  /* Closer to the referenced Dribbble palette: deep navy, electric blue, cyan accents */
+  --brand-primary: #2563eb; /* electric blue */
+  --brand-secondary: #06b6d4; /* cyan */
+  --brand-accent: #f59e0b; /* amber for highlights */
+  --brand-bg: #0b1220; /* deep navy */
 }
 
 .header-gradient {
-  background: linear-gradient(90deg, #0b1020 0%, #11224f 60%, #1a3b8b 100%);
+  background: linear-gradient(90deg, #0b1220 0%, #0f1c36 55%, #162e5c 100%);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
+  background: rgba(7, 16, 35, 0.6);
+  border: 1px solid rgba(80, 140, 255, 0.15);
+  backdrop-filter: blur(14px);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 .elevated-hover:hover {
@@ -118,15 +120,15 @@ button:focus-visible {
 
 /* Gradient button styles */
 .btn-gradient {
-  background: linear-gradient(135deg, #3b82f6, #10b981) !important;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary)) !important;
   color: #fff !important;
   border: none !important;
-  box-shadow: 0 8px 24px rgba(59,130,246,0.25);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .btn-gradient:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 28px rgba(59,130,246,0.35);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.35);
 }
 
 .btn-outline-light {

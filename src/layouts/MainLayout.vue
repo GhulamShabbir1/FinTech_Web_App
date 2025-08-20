@@ -1,11 +1,11 @@
 <template>
   <q-layout view="hHh LpR fFf">
-    <AnimateBackground />
 
     <!-- Header -->
     <q-header elevated class="text-white header-gradient">
       <q-toolbar class="q-py-sm">
         <q-btn
+          v-if="isAuthed"
           flat
           round
           dense
@@ -41,6 +41,7 @@
 
     <!-- Drawer -->
     <q-drawer
+      v-if="isAuthed"
       v-model="drawerOpen"
       show-if-above
       :overlay="$q.screen.lt.md"
@@ -130,10 +131,13 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import AnimateBackground from "../components/common/AnimateBackground.vue"
+import { ref, computed } from "vue"
+import { useAuthStore } from "../store/auth"
 
-const drawerOpen = ref(true)
+const auth = useAuthStore()
+const isAuthed = computed(() => !!auth.token)
+
+const drawerOpen = ref(false)
 const q = ref("")
 const searchOpen = ref(false)
 
