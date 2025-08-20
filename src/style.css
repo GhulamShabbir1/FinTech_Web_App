@@ -160,14 +160,30 @@ body, button, input, textarea, .q-btn__content, .q-toolbar, .q-item__label {
 
 /* Service cards */
 .service-card {
-  background: #ffffff;
-  border: 1px solid rgba(189, 240, 0, 0.3);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  background: var(--brand-bg);
+  border: 1px solid rgba(189, 240, 0, 0.25);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+  color: #ffffff;
+}
+
+.card-dark {
+  background: var(--brand-bg);
+  color: #ffffff;
+  border: 1px solid rgba(189, 240, 0, 0.25);
+}
+
+.tall-card {
+  min-height: 220px;
+}
+
+.card-with-margins {
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 /* Footer styling */
 .footer-dark {
-  background: #171719 !important;
+  background: #000000 !important;
   color: #ffffff !important;
   border-top: 1px solid rgba(189,240,0,0.15);
 }

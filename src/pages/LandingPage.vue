@@ -16,12 +16,12 @@
       <!-- Feature Cards -->
       <div class="row q-col-gutter-md q-mb-xl">
         <div class="col-12 col-sm-6 col-md-3" v-for="card in cards" :key="card.title">
-          <q-card class="q-pa-md service-card elevated-hover animate__animated animate__zoomIn">
+          <q-card class="q-pa-lg service-card tall-card card-with-margins elevated-hover animate__animated animate__zoomIn">
             <div class="row items-center">
               <q-icon :name="card.icon" size="lg" class="q-mr-sm text-lime" />
-              <div class="text-subtitle1 text-weight-medium text-darkest">{{ card.title }}</div>
+              <div class="text-subtitle1 text-weight-medium" style="color:#fff;">{{ card.title }}</div>
             </div>
-            <div class="q-mt-sm text-grey-7">{{ card.desc }}</div>
+            <div class="q-mt-sm" style="color: rgba(255,255,255,0.75);">{{ card.descLong || card.desc }}</div>
           </q-card>
         </div>
       </div>
@@ -31,10 +31,10 @@
         <div class="text-h4 text-lime q-mb-md text-center" style="font-weight:700;">Benefits & Advantages</div>
         <div class="row q-col-gutter-md">
           <div class="col-12 col-sm-6 col-md-3" v-for="b in benefits" :key="b.title">
-            <q-card class="q-pa-md hover-raise animate__animated animate__fadeInUp">
-              <q-icon :name="b.icon" color="primary" size="lg" />
-              <div class="text-subtitle2 q-mt-sm">{{ b.title }}</div>
-              <div class="text-caption text-grey-7 q-mt-xs">{{ b.desc }}</div>
+            <q-card class="q-pa-lg card-dark tall-card card-with-margins hover-raise animate__animated animate__fadeInUp">
+              <q-icon :name="b.icon" class="text-lime" size="lg" />
+              <div class="text-subtitle2 q-mt-sm" style="color:#fff;">{{ b.title }}</div>
+              <div class="text-caption q-mt-xs" style="color: rgba(255,255,255,0.75);">{{ b.descLong || b.desc }}</div>
             </q-card>
           </div>
         </div>
@@ -92,17 +92,17 @@ const goToRegister = () => router.push('/register')
 const goToLogin = () => router.push('/login')
 
 const cards = [
-  { title: 'Merchant Onboarding', desc: 'KYC, approval flow and profile management.', icon: 'store', color: 'bg-blue-1' },
-  { title: 'Secure Checkout', desc: 'Hosted checkout with cards and wallets.', icon: 'credit_card', color: 'bg-green-1' },
-  { title: 'Transactions', desc: 'Filterable history, refunds and CSV export.', icon: 'receipt_long', color: 'bg-orange-1' },
-  { title: 'Analytics', desc: 'Revenue trends and method distribution.', icon: 'insights', color: 'bg-purple-1' }
+  { title: 'Merchant Onboarding', desc: 'KYC, approval flow and profile management.', descLong: 'Streamlined multi-step onboarding with branding, documents, and bank details captured securely. Admin approval workflow included.', icon: 'store' },
+  { title: 'Secure Checkout', desc: 'Hosted checkout with cards and wallets.', descLong: 'Hosted checkout with PCI-aware flows, card and alternative methods, and real-time status updates via webhooks.', icon: 'credit_card' },
+  { title: 'Transactions', desc: 'Filterable history, refunds and CSV export.', descLong: 'Complete transaction history with advanced filtering, sorting, refund initiation, and export to CSV for accounting.', icon: 'receipt_long' },
+  { title: 'Analytics', desc: 'Revenue trends and method distribution.', descLong: 'Rich dashboards with revenue trends, method split, success rates, and performance across geographies and customers.', icon: 'insights' }
 ]
 
 const benefits = [
-  { title: 'Fast Integration', desc: 'Drop-in components and clear APIs.', icon: 'bolt' },
-  { title: 'Reliable', desc: 'Robust infra with retries and alerts.', icon: 'verified' },
-  { title: 'Secure', desc: 'PCI-aware flows and JWT auth.', icon: 'shield' },
-  { title: 'Scalable', desc: 'Optimized queries and caching.', icon: 'trending_up' }
+  { title: 'Fast Integration', desc: 'Drop-in components and clear APIs.', descLong: 'Developer-friendly SDKs and examples reduce time-to-first-payment. Configure branding and methods in minutes.', icon: 'bolt' },
+  { title: 'Reliable', desc: 'Robust infra with retries and alerts.', descLong: 'Resilient processing with retries, observability, and alerting ensures payments keep flowing.', icon: 'verified' },
+  { title: 'Secure', desc: 'PCI-aware flows and JWT auth.', descLong: 'Modern security across the stack: tokenized cards, HTTPS, JWT-based auth and scoped API keys.', icon: 'shield' },
+  { title: 'Scalable', desc: 'Optimized queries and caching.', descLong: 'Efficient storage and indexed queries power dashboards and exports at any scale.', icon: 'trending_up' }
 ]
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="hHh LpR fFf">
+  <q-layout view="lHh Lpr lFf">
 
     <!-- Header -->
     <q-header elevated class="text-white header-gradient" reveal>
