@@ -41,6 +41,7 @@
 import { ref } from 'vue'
 import { Notify } from 'quasar'
 import { useMerchantStore } from '../../store/merchant'
+import { pinia } from '../../store/pinia'
 
 const step = ref(1)
 const submitting = ref(false)
@@ -59,7 +60,7 @@ const form = ref({
 })
 
 const logoFile = ref(null)
-const store = useMerchantStore()
+const store = useMerchantStore(pinia)
 
 const next = async () => {
   if (step.value < 4) {

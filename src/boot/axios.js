@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { Notify } from 'quasar'
 import { useAuthStore } from '../store/auth'
+import { pinia } from '../store/pinia'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL || '/api',
@@ -9,7 +10,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   try {
-    const auth = useAuthStore()
+    const auth = useAuthStore(pinia)
     if (auth && auth.token) {
       config.headers.Authorization = `Bearer ${auth.token}`
       return config
@@ -31,7 +32,7 @@ api.interceptors.response.use(
     const message = error?.response?.data?.message || error.message || 'Request failed'
     if (status === 401) {
       try {
-        const auth = useAuthStore()
+        const auth = useAuthStore(pinia)
         if (auth) auth.logout()
       } catch {
         localStorage.removeItem('auth_token')
