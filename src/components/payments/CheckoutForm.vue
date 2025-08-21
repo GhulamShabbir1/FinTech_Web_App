@@ -232,12 +232,10 @@
 
 <script setup>
 import { ref, computed, watch, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { Notify } from 'quasar'
+import { useRouter } from 'vue-router'
 import api from '../../boot/axios'
 import PaymentLoader from './PaymentLoader.vue'
 
-const route = useRoute()
 const router = useRouter()
 
 // Props
