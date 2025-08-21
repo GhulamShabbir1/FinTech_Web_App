@@ -10,17 +10,19 @@ import PaymentStatus from '../pages/PaymentStatus.vue'
 import HostedCheckout from '../pages/HostedCheckout.vue'
 import TransactionsPage from '../pages/TransactionsPage.vue'
 import StatsPage from '../pages/StatsPage.vue'
+import AdminDashboardPage from '../pages/AdminDashboardPage.vue'
 
 const routes = [
-  { path: '/', component: LandingPage },
-  { path: '/login', component: Login },
-  { path: '/register', component: Register },
-  { path: '/checkout', component: Checkout },
-  { path: '/dashboard', component: MerchantDashboard },
-  { path: '/payments/status/:id', component: PaymentStatus },
-  { path: '/checkout/:merchantId', component: HostedCheckout },
-  { path: '/transactions', component: TransactionsPage },
-  { path: '/stats', component: StatsPage },
+  { path: '/', name: 'home', component: LandingPage },
+  { path: '/login', name: 'login', component: Login },
+  { path: '/register', name: 'register', component: Register },
+  { path: '/checkout', name: 'checkout', component: Checkout },
+  { path: '/dashboard', name: 'dashboard', component: MerchantDashboard },
+  { path: '/admin-dashboard', name: 'admin-dashboard', component: AdminDashboardPage },
+  { path: '/payments/status/:id', name: 'payment-status', component: PaymentStatus },
+  { path: '/checkout/:merchantId', name: 'hosted-checkout', component: HostedCheckout },
+  { path: '/transactions', name: 'transactions', component: TransactionsPage },
+  { path: '/stats', name: 'stats', component: StatsPage },
 ]
 
 const router = createRouter({
